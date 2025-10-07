@@ -10,19 +10,18 @@
         echo "<b>AREA AND PERIMETER OF A RECTANGLE </b>";
         echo "<ul>";
 
+        
         $length = 8;
         $width = 5;
-
+        
         $area = $length * $width;
-        $perimeter = 2 * ($area);
-
-        echo"Length = $length";
-        echo "<br>";
-        echo"Width = $width";
-        echo "<br>";
-        echo "<br>";
-        echo "Area:  $length * $width = $area <br>";
-        echo "Perimeter:  2 ($length * $width) = $perimeter";
+        $perimeter = 2 * ($length + $width);
+        
+        echo "Length = $length<br>";
+        echo "Width = $width<br><br>";
+        echo "Area: $length * $width = $area<br>";
+        echo "Perimeter: 2 * ($length + $width) = $perimeter<br>";
+        
 
     ?>
 </body>

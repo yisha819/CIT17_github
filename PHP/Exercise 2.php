@@ -13,10 +13,13 @@
         $a = 32;
         $b = 40;
 
-        echo "<li>Sum: $a + $b  = " . ($a + $b) . "</li>";
-        echo "<li>Difference: $a - $b  = " . ($a - $b) . "</li>";
-        echo "<li>Product: $a * $b  = " . ($a * $b) . "</li>";
-        echo "<li>Quotient: $a / $b  = " . ($a / $b) . "</li>";
+        echo "A = 32<br>";
+        echo "B = 40 <br>";
+        echo "<br>";
+        echo "Sum: $a + $b  = " . ($a + $b) . "<br>";
+        echo "Difference: $a - $b  = " . ($a - $b) . "<br>";
+        echo "Product: $a * $b  = " . ($a * $b) . "<br>";
+        echo "Quotient: $a / $b  = " . ($a / $b) . "<br>";
    ?>
 </body>
 </html>

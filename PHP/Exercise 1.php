@@ -8,7 +8,7 @@
 <body>
     <?php
         echo "<b>INTRODUCE YOURSELF</b>";
-        echo "<br>";
+        echo "<ul>";
 
         $name = "Ayisha";
         $age = 20;
