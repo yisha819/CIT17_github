@@ -6,24 +6,29 @@
     <title>String Manipulation</title>
 </head>
 <body>
+    <h2><b>String Manipulation</b></h2>
+    <form method="post">
+        Enter sentence: <input type="text" name="sentence"><br><br>
+        <input type="submit" value="Enter">
+    </form>
     <?php
-    echo "<b>STRING MANIPULATION</b>";
-    echo "<ul>";
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $sentence = $_POST['sentence'];
 
-    $sentence = "Lightning danced across the sky as the old lighthouse blinked through the storm.";
+        echo "Number of characters: " . strlen($sentence) . "<br>";
+
+   
+        echo "Number of words: " . str_word_count($sentence) . "<br>";
 
     
-    echo "Number of characters: " . strlen($sentence) . "<br>";
+        echo "Uppercase: " . strtoupper($sentence) . "<br>";
 
-   
-    echo "Number of words: " . str_word_count($sentence) . "<br>";
-
- 
-    echo "Uppercase: " . strtoupper($sentence) . "<br>";
-
-   
-    echo "Lowercase: " . strtolower($sentence) . "<br>";
+    
+        echo "Lowercase: " . strtolower($sentence) . "<br>";
+    }
     ?>
-
+    
+    
 </body>
 </html>

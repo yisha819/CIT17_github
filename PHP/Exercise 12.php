@@ -6,25 +6,30 @@
     <title>Travel Cost Estimator</title>
 </head>
 <body>
+    <h2><b>Travel Cost Estimator</b></h2>
+    <form method="post">
+        Distance (km): <input type="value" name="distance"><br><br>
+        Fuel Consumption (km per liter): <input type="value" name="fuel_consumption"><br><br>
+        Fuel Price (₱ per liter): <input type="value" name="fuel_price"><br><br>
+        <input type="submit" value="Calculate"><br><br>
+    </form>
+
     <?php
-    echo "<b>TRAVEL COST ESTIMATOR</b>";
-    echo "<ul>";
-    
-    $distance = 150; 
-    $fuel_consumption = 12; 
-    $fuel_price = 65.00;
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $distance = $_POST['distance'];
+        $fuel_consumption = $_POST['fuel_consumption'];
+        $fuel_price = $_POST['fuel_price'];
+
+        $fuel_needed = $distance / $fuel_consumption;
 
     
-    $fuel_needed = $distance / $fuel_consumption;
+        $travel_cost = $fuel_needed * $fuel_price;
 
-    
-    $travel_cost = $fuel_needed * $fuel_price;
+        echo "<br>";
+        echo "Estimated Travel Cost: ₱" . number_format($travel_cost, 2);
 
-    echo "Distance: 150 <br>";
-    echo "Fuel Consumption: 12 <br>";
-    echo "Fuel Price: ₱ 65 <br>";
-    echo "<br>";
-    echo "Estimated Travel Cost: ₱" . number_format($travel_cost, 2);
+    }
     ?>
 
 </body>

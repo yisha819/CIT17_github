@@ -6,18 +6,24 @@
     <title>BMI Calculator</title>
 </head>
 <body>
+    <h2><b>BMI Calculator</b></h2>
+    <form method="post">
+        Enter weight (kgs): <input type="value" name="weight"><br><br>
+        Enter height (m): <input type="value" name="height"><br><br>
+        <input type="submit" value="Calculate BMI">
+    </form>
     <?php
-    echo "<b>BMI Calculator</b>";
-    echo "<ul>";
-    $weight = 70; 
-    $height = 1.75; 
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $weight = $_POST['weight'];
+        $height = $_POST['height'];
 
-    $bmi = $weight / ($height * $height);
+        $bmi = $weight / ($height * $height);
 
-    echo "Weight 
-    (kg): 70 <br>";
-    echo "Height (m): 1.75 <br>";
-    echo "Your BMI is: " . round($bmi, 2);
+        echo "Weight (kg): $weight <br>";
+        echo "Height (m): $height <br>";
+        echo "Your BMI is: " . round($bmi, 2);
+    }
     ?>
     
 </body>

@@ -6,24 +6,39 @@
     <title>Bank Account Simulation</title>
 </head>
 <body>
+    <h2><b>Bank Account Simulation</b></h2>
+    <h3>Choose transaction: </h3>
+    <form method="post">
+        Enter amount to deposit: <input type="number" name="deposit" step="0.01"><br><br>
+        Enter amount to withdraw: <input type="number" name="withdraw" step="0.01"><br><br>
+        <input type="submit" value="Enter"><br>
+    </form>
+
     <?php
-    echo "<b>BANK ACCOUNT SIMULATION</b>";
-    echo "<ul>";
-    $balance = 1000.00; 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    {
+        $balance = 1000.00;
+        $deposit = floatval($_POST["deposit"]);
+        $withdraw = floatval($_POST["withdraw"]);
 
-    $deposit = 250.00;
-    $withdraw = 100.00;
+        echo "Initial Balance = ₱" . number_format($balance, 2) . "<br>";
 
-    
-    $balance += $deposit; 
-    $balance -= $withdraw; 
+        if ($deposit > 0) {
+            $balance += $deposit;
+            echo "Deposit = ₱" . number_format($deposit, 2) . "<br>";
+        }
 
-    echo "Balance = $balance <br>";
-    echo "Deposit = $deposit <br>";
-    echo "Withdraw = $withdraw <br>";
+        if ($withdraw > 0) {
+            if ($withdraw <= $balance) {
+                $balance -= $withdraw;
+                echo "Withdraw = ₱" . number_format($withdraw, 2) . "<br>";
+            } else {
+                echo "Error: Insufficient balance to withdraw ₱" . number_format($withdraw, 2) . "<br>";
+            }
+        }
 
-    echo "Final Balance: P" . number_format($balance, 2);
+        echo "<br>Final Balance: ₱" . number_format($balance, 2);
+    }
     ?>
-
 </body>
 </html>
